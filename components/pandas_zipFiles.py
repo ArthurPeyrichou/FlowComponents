@@ -38,22 +38,24 @@ EXPORTS = {
   'color': '#1797F0',
   'input': True,
   'icon': 'file-archive',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Zip',  
   'options': {
     'zipfilename' : 'my-zipFile.zip',
     'filesname': ''
   },
-  'readme': """# Drop NA
-
-  Zip Files""",
-  'html': """<div class="padding">
-	<div class="row">
-		<div class="col-md-12">
-			<div data-jc="textbox" data-jc-path="filename" data-jc-config="placeholder:/public/robots.txt">Filename</div>
-			<div class="help m">Filename relative to the application root.</div>
-		</div>
-	</div>
-</div>""",
+  'details': {
+    'filesname': {
+      'input': 'text',
+      'info': 'The list of files (path/name) to compress into zip separates by semicolon.',
+      'beautifulName': 'Columns list to zip'
+    },
+    'zipfilename': {
+      'input': 'text',
+      'info': 'The created zip file (path/name).',
+      'beautifulName': 'Zip file name'
+    }
+   },
+  'readme': 'This component allow you to compress files into a single zip file.',
   'install': install
 }

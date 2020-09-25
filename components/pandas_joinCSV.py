@@ -60,17 +60,19 @@ EXPORTS = {
   'input': 2,
   'output': True,
   'icon': 'file-csv',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'method': 'inner',
   },
-  'readme': """# Merge CSV
-
-  Merge two dataframes to a unique one""",
-  'html': """<div class="padding">
-	<div class="row">
-	</div>
-</div>""",
+  'details': {
+    'method': {
+      'input': 'select',
+      'info': 'The type merge we want to do.',
+      'beautifulName': 'Merge type',
+      'value': ['left', 'right', 'inner', 'outer']
+    }
+  },
+  'readme': 'This component allow you to merge two dataframes to a unique one.',
   'install': install
 }

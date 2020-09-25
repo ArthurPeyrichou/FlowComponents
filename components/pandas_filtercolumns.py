@@ -27,26 +27,23 @@ def install(instance):
 EXPORTS = {
   'id': 'pandas_filtercolumns',
   'title': 'Filter Columns',
-  'author': 'Arthur Chevalier',
+  'author': 'Arthur Peyrichou',
   'color': '#1797F0',
   'input': True,
   'output': True,
   'icon': 'minus',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'filter': ''
   },
-  'readme': """# Filter Column
-
-  Filter Columns of a DataFrame""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-      <div data-jc="textbox" data-jc-path="filter" data-jc-config="placeholder:toto;tutu;tata">Filename</div>
-      <div class="help m">Columns to keep separated by semi-column</div>
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'filter': {
+      'input': 'text',
+      'info': 'The list of columns to keep separates by semicolon.',
+      'beautifulName': 'Columns list'
+    }
+  },
+  'readme': 'This component allow you to filter columns of a DataFrame.',
   'install': install
 }

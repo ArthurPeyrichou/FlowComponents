@@ -28,17 +28,20 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'file-csv',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'columns': ''
   },
-  'readme': """# Create CSV
-
-  Create CSV dataframe (pandas)""",
-  'html': """<div class="padding">
-    <div class="row">
-    </div>
-  </div>""",
+  'details': {
+    'columns': {
+      'input': 'text',
+      'info': 'The list of columns in your Dataframe, separates by semicolon.',
+      'beautifulName': 'Columns of the DataFrame',
+      'example': 'Col1;Col2;Col3',
+      'exampleExplain': 'This example will create a Datafram with three columns (Col1, Col2, Col3).'
+    }
+  },
+  'readme': 'This component allow you to create an empty DataFrame with defined columns.',
   'install': install
 }

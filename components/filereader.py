@@ -49,47 +49,38 @@ EXPORTS = {
   'output': 1,
   'input': 1,
   'icon': 'file-alt',
-  'version': '1.0.1',
+  'version': '1.2.0',
   'group': 'Inputs',
   'options': {
     'filename': '',
-    'append': True,
     'encoding': 'UTF-8',
     'type': 'text',
     'delimiter': '\\n'
   },
-  'readme': """# File Reader
-
-This component reads a file from file system.
-
-## Input
-If incomming object has a path property then filename option is ignored.
-
-Example of incomming object
-\`\`\`javascript
-{
-  path: '/public/robots.txt',
-  type: 'text', // optional, default text
-  encoding: 'utf8' // optional, default utf8
-}
-\`\`\`
-""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-      <div data-jc="textbox" data-jc-path="filename" data-jc-config="placeholder:/public/robots.txt">Filename</div>
-      <div class="help m">Filename relative to the application root.</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div data-jc="dropdown" data-jc-path="type" data-jc-config="items:Buffer|buffer,Text|text">Read as</div>
-    </div>
-    <div class="col-md-6">
-      <div data-jc="textbox" data-jc-path="encoding" data-jc-config="placeholder:utf8">Encoding (default 'utf8')</div>
-      <div class="help m">Only for 'Read as text'</div>
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'filename': {
+      'input': 'text',
+      'info': 'The path that should be used to access file.',
+      'beautifulName': 'File path/name'
+    },
+    'type': {
+      'input': 'text',
+      'info': 'The encoding that should be used to read the file.',
+      'beautifulName': 'File encoding',
+      'example': 'buffer'
+    },
+    'encoding': {
+      'input': 'text',
+      'info': 'The encoding that we want in output.',
+      'beautifulName': 'Output encoding',
+      'example': 'buffer'
+    },
+    'delimiter': {
+      'input': 'text',
+      'info': 'The file reading delimiter.',
+      'beautifulName': 'Delimiter'
+    }
+  },
+  'readme': 'This component allow you to read a file then convert the encoding.',
   'install': install
 }

@@ -29,18 +29,8 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'file-csv',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
-  'readme': """# Drop NA
-
-  Drop all rows containing NaN in a specified column""",
-  'html': """<div class="padding">
-	<div class="row">
-		<div class="col-md-12">
-			<div data-jc="textbox" data-jc-path="columns" data-jc-config="placeholder:toto;tata;tutu">Columns</div>
-			<div class="help m">Columns where to search NaN (semi-colon separated).</div>
-		</div>
-	</div>
-</div>""",
+  'readme': 'This component allow you to drop all rows containing NaN in a specified column.',
   'install': install
 }

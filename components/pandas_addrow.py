@@ -6,18 +6,18 @@ def onData(instance, args):
     payload = args[0]
     df = payload.data
 
-    if 'rows' not in instance.options:
+    if 'row' not in instance.options:
       instance.send(df)
       return
 
-    if '\n' in instance.options['rows']:
-      rows = instance.options['rows'].split('\n')
-      for row in rows:
+    if '\n' in instance.options['row']:
+      row = instance.options['row'].split('\n')
+      for row in row:
         row = row.plit(';')
     else:
-      rows = [instance.options['rows'].split(';')]
+      row = [instance.options['row'].split(';')]
 
-    newRows = pd.DataFrame(rows, columns=df.columns)
+    newRows = pd.DataFrame(row, columns=df.columns)
     df = pd.concat([newRows, df], ignore_index=True)
 
     instance.send(df)
@@ -35,19 +35,20 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'plus',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
-    'rows': ''
+    'row': ''
   },
-  'readme': """# Add Rowq
-
-  Add Rowq in a DataFrame""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'row': {
+      'input': 'text',
+      'info': 'Values ordered as their columns in the Dataframes separate by a semicolon',
+      'beautifulName': 'Row to add',
+      'example': 'aFirstName;aLastName;25',
+      'exampleExplain': 'This example will add a new row in the DataFrame (FirstName;LastName,Age) with for values (aFirstName;aLastName;25).'
+    }
+  },
+  'readme': 'This component allow you to add a new row in your DataFrame.',
   'install': install
 }

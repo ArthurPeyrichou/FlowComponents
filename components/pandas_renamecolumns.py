@@ -35,19 +35,20 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'edit',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'rename': ''
   },
-  'readme': """# Rename Column
-
-  Rename Columns of a DataFrame""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'rename': {
+      'input': 'text',
+      'info': 'The list of <columnName:newColumnName> separates by semicolon.',
+      'beautifulName': 'Columns list to rename',
+      'example': 'Col1:FirstName;Col2:LastName;Col3:Age',
+      'exampleExplain': 'This example will create rename the colmuns (Col1, Col2, Col3) into (FirstName, LastName, Age).'
+    }
+  },
+  'readme': 'This component allow you to rename columns of a DataFrame',
   'install': install
 }

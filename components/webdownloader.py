@@ -107,45 +107,38 @@ EXPORTS = {
   'output': 1,
   'input': 1,
   'icon': 'globe',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Inputs',
   'options': {
     'URL': '',
-    'append': True,
-    'delimiter': '\\n'
+    'delimiter': '\\n',
+    'encoding': 'utf8',
+    'targetPath':''
   },
-  'readme': """# Web File Reader
-
-This component reads a file from a given URL then convert the encoding to UTF-8.
-
-## Input
-If incomming object has a path property then filename option is replaced.
-
-Example of incomming object
-\`\`\`javascript
-{
-	path: 'https://example.com/file',
-	targetPath: 'toto.txt', // optional, default text
-	encoding: 'utf8' // optional, default utf8
-}
-\`\`\`
-""",
-  'html': """<div class="padding">
-	<div class="row">
-		<div class="col-md-6">
-			<div data-jc="textbox" data-jc-path="url" data-jc-config="placeholder:https://example.com/file">Filename</div>
-			<div class="help m">URL of file</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div data-jc="textbox" data-jc-path="targetPath" data-jc-config="placeholder:toto.txt">Save as:</div>
-		</div>
-		<div class="col-md-6">
-			<div data-jc="textbox" data-jc-path="encoding" data-jc-config="placeholder:utf8">Encoding (default 'utf8')</div>
-			<div class="help m">Only for 'Read as text'</div>
-		</div>
-	</div>
-</div>""",
+  'details': {
+    'URL': {
+      'input': 'text',
+      'info': 'The the url where we get the file.',
+      'beautifulName': 'URL',
+      'example': 'https://example.com/file'
+    },
+    'encoding': {
+      'input': 'text',
+      'info': 'The encoding that we want in output.',
+      'beautifulName': 'Output encoding',
+      'example': 'buffer'
+    },
+    'delimiter': {
+      'input': 'text',
+      'info': 'The file reading delimiter.',
+      'beautifulName': 'Delimiter'
+    },
+    'targetPath': {
+      'input': 'text',
+      'info': 'The path that should be used to save the new file.',
+      'beautifulName': 'Output file path/name'
+    }
+   },
+  'readme': 'This component allow you to reads a file from a given URL then convert the encoding.',
   'install': install
 }

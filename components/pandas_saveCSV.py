@@ -9,8 +9,12 @@ def onData(instance, args):
     instance.throw('No filename specified !')
     return
   
+  sep = ';'
+  if 'seperator' in instance.options and instance.options['seperator'] != '':
+    sep = instance.options['seperator']
+  
   try:
-    df.to_csv(instance.options['filename'], sep=';', index=None, header=True)
+    df.to_csv(instance.options['filename'], sep=sep, index=None, header=True)
   except Exception as e:
     instance.throw(str(e) + '\n' + str(traceback.format_exc()))
 
@@ -24,21 +28,24 @@ EXPORTS = {
   'color': '#1797F0',
   'input': True,
   'icon': 'file-csv',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',  
   'options': {
-    'filename': ''
+    'filename': '',
+    'separator': ';'
   },
-  'readme': """# Drop NA
-
-  Drop all rows containing NaN in a specified column""",
-  'html': """<div class="padding">
-	<div class="row">
-		<div class="col-md-12">
-			<div data-jc="textbox" data-jc-path="filename" data-jc-config="placeholder:/public/robots.txt">Filename</div>
-			<div class="help m">Filename relative to the application root.</div>
-		</div>
-	</div>
-</div>""",
+  'details': {
+    'separator': {
+      'input': 'text',
+      'info': 'The separator in the file which allow to determine columns.',
+      'beautifulName': 'Columns separator'
+    },
+    'filename': {
+      'input': 'text',
+      'info': 'The path that should be used to save the new file.',
+      'beautifulName': 'File path/name'
+    }
+   },
+  'readme': 'This component allow you to save a DataFrame into a csv file.',
   'install': install
 }

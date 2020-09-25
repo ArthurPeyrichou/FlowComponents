@@ -40,16 +40,7 @@ EXPORTS = {
   'click': True,
   'output': 1,
   'icon': 'play',
-  'version': '1.1.0',
-  'readme': """# Trigger
-
-- Clicking on the component starts the chain
-- Settings allows to set a data-type and a value""",
-  'html': """<div class="padding">
-	<div data-jc="dropdown__datatype__items:,String|string,Integer|integer,Float|float,Boolean|boolean,Date|date,Object|object,Base64 as Buffer|buffer" class="m">Data type (String by default)</div>
-	<div data-jc="textbox__data__placeholder:e.g. Hello world or { hello: 'world'} or ['hello', 'world'])" class="m">Data</div>
-	<div data-jc="checkbox__restart">Trigger 5s after initialization.</div>
-	<div class="help">Useful when there's a need to run certain flow when the app restarts, etc.</div>
-</div>""",
+  'version': '1.2.0',
+  'readme': 'Clicking on the component starts the chain.',
   'install': install
 }

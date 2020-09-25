@@ -76,7 +76,7 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'key',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'keyName': 'id',
@@ -84,14 +84,29 @@ EXPORTS = {
     'keyType': 'numerical',
     'keySize': '10'
   },
-  'readme': """# Generate Key
-
-  Generate Key in a DataFrame""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'keyName': {
+      'input': 'text',
+      'info': 'The name of the new column.',
+      'beautifulName': 'New column name'
+    },
+    'basedColumn': {
+      'input': 'text',
+      'info': 'The column to use to generate the key (can be empty).',
+      'beautifulName': 'Based column name'
+    },
+    'keyType': {
+      'input': 'select',
+      'info': 'The type of key we want to generate.',
+      'beautifulName': 'Key type',
+      'value': ['numerical', 'alpha', 'alphanum']
+    },
+    'keySize': {
+      'input': 'number',
+      'info': 'The size of the key we want to generate (without counting on the based-column size).',
+      'beautifulName': 'Size of the generate key'
+    }
+  },
+  'readme': 'This component allow you to generate a key column in a DataFrame',
   'install': install
 }

@@ -34,7 +34,7 @@ def onData(instance, args):
       toRemove.append(tmp[0] + '.Lower')
 
     if 'debug' in instance.options and instance.options['debug']:
-      instance.debug("%s - %s" % (sortingColumns, sortingOrder))
+      instance.debug('%s - %s' % (sortingColumns, sortingOrder))
     df = df.sort_values(by=sortingColumns, ascending=sortingOrder, na_position='first')
     
     for r in toRemove:
@@ -55,21 +55,18 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'file-csv',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'sort': ''
   },
-  'readme': """# Sort Dataframes
-
-  Sort a Dataframe""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-      <div data-jc="textbox" data-jc-path="sort" data-jc-config="placeholder:toto,asc;tutu,desc;tata,asc">Filename</div>
-      <div class="help m">Sorting columns. Dataframe will be sort with these columns and by order.</div>
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'sort': {
+      'input': 'text',
+      'info': 'The list of columns to sort separate by semicolon (Method asc).',
+      'beautifulName': 'Columns list to sort'
+    }
+   },
+  'readme': 'This component allow you to sort a Dataframe',
   'install': install
 }

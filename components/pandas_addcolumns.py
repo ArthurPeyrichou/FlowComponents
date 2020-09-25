@@ -43,19 +43,20 @@ EXPORTS = {
   'input': True,
   'output': True,
   'icon': 'plus',
-  'version': '1.0.0',
+  'version': '1.2.0',
   'group': 'Pandas',
   'options': {
     'columns': ''
   },
-  'readme': """# Add Column
-
-  Add Columns in a DataFrame""",
-  'html': """<div class="padding">
-  <div class="row">
-    <div class="col-md-6">
-    </div>
-  </div>
-</div>""",
+  'details': {
+    'columns': {
+      'input': 'text',
+      'info': 'The list of columns to add separate by semicolon. If the column have a default value, add \':\' and the default value after the column name.',
+      'beautifulName': 'New columns list to add',
+      'example': 'Col1:3;Col2;Col3:aString',
+      'exampleExplain': 'This example will create a 3 new columns, the Col1 with for default value 3. The Col2 with no default value so by default it will be None (null). And the Col3 with for default value \'aString\'.'
+    }
+  },
+  'readme': 'This component allow you to add a new column in your DataFrame. You can add a default value, otherwise it will be None (\'null\').',
   'install': install
 }
