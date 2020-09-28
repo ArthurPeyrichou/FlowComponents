@@ -1,3 +1,4 @@
+from os.path import basename 
 from zipfile import ZipFile
 import traceback
 
@@ -14,6 +15,10 @@ def onData(instance, args):
   else:
     filesname = [instance.options['filesname']]
 
+  if 'withParentFolder' in instance.options:
+    withParentFolder = instance.options['withParentFolder']
+  else:
+    withParentFolder = False
   
   try:
     # create a ZipFile object
@@ -21,7 +26,10 @@ def onData(instance, args):
 
     # Add multiple files to the zip
     for filename in filesname:
-      zipObj.write(filename)
+      if withParentFolder:
+        zipObj.write(filename)
+      else:
+        zipObj.write(filename, basename(filename))
 
     # close the Zip File
     zipObj.close()
@@ -32,28 +40,34 @@ def install(instance):
   instance.on('data', onData)
 
 EXPORTS = {
-  'id': 'zip_zipFiles',
-  'title': 'Zip Files',
+  'id': 'zipFiles_createzip',
+  'title': 'Create ZipFile',
   'author': 'Arthur Peyrichou',
-  'color': '#1797F0',
+  'color': '#B0BC00FF',
   'input': True,
   'icon': 'file-archive',
   'version': '1.2.0',
   'group': 'Zip',  
   'options': {
     'zipfilename' : 'my-zipFile.zip',
-    'filesname': ''
+    'filesname': '',
+    'withParentFolder': False
   },
   'details': {
     'filesname': {
       'input': 'text',
       'info': 'The list of files (path/name) to compress into zip separates by semicolon.',
-      'beautifulName': 'Columns list to zip'
+      'beautifulName': 'Files list to zip'
     },
     'zipfilename': {
       'input': 'text',
       'info': 'The created zip file (path/name).',
       'beautifulName': 'Zip file name'
+    },
+    'withParentFolder': {
+      'input': 'checkbox',
+      'info': 'True if zip parent folders, false otherwise.',
+      'beautifulName': 'Zip files with parent folders?'
     }
    },
   'readme': 'This component allow you to compress files into a single zip file.',
