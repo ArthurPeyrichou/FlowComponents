@@ -99,7 +99,7 @@ EXPORTS = {
       'input': 'select',
       'info': 'The type of key we want to generate.',
       'beautifulName': 'Key type',
-      'value': ['numerical', 'alpha', 'alphanum']
+      'values': ['numerical', 'alpha', 'alphanum']
     },
     'keySize': {
       'input': 'number',

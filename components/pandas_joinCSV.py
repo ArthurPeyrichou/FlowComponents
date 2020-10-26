@@ -70,7 +70,7 @@ EXPORTS = {
       'input': 'select',
       'info': 'The type merge we want to do.',
       'beautifulName': 'Merge type',
-      'value': ['left', 'right', 'inner', 'outer']
+      'values': ['left', 'right', 'inner', 'outer']
     }
   },
   'readme': 'This component allow you to merge two dataframes to a unique one.',

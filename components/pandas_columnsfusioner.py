@@ -25,9 +25,9 @@ def columnsfusioner(x, basedColumns, separator):
   res = ''
   for column in basedColumns:
     if res != '':
-      res += ''.join([res, str(separator), str(x[column])]) 
+      res += ''.join([str(separator), str(x[column])]) 
     else :
-      res = ''.join([res, str(x[column])]) 
+      res = str(x[column])
   return res
 
 def install(instance):

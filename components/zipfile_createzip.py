@@ -1,6 +1,7 @@
 from os.path import basename 
 from zipfile import ZipFile
 import traceback
+import os
 
 def onData(instance, args):
   payload = args[0]
@@ -19,6 +20,11 @@ def onData(instance, args):
     withParentFolder = instance.options['withParentFolder']
   else:
     withParentFolder = False
+
+  if 'removeFilesAfter' in instance.options:
+    removeFilesAfter = instance.options['removeFilesAfter']
+  else:
+    removeFilesAfter = False
   
   try:
     # create a ZipFile object
@@ -30,6 +36,8 @@ def onData(instance, args):
         zipObj.write(filename)
       else:
         zipObj.write(filename, basename(filename))
+      if removeFilesAfter:
+        os.remove(filename)
 
     # close the Zip File
     zipObj.close()
@@ -51,7 +59,8 @@ EXPORTS = {
   'options': {
     'zipfilename' : 'my-zipFile.zip',
     'filesname': '',
-    'withParentFolder': False
+    'withParentFolder': False,
+    'removeFilesAfter': False
   },
   'details': {
     'filesname': {
@@ -68,6 +77,11 @@ EXPORTS = {
       'input': 'checkbox',
       'info': 'True if zip parent folders, false otherwise.',
       'beautifulName': 'Zip files with parent folders?'
+    },
+    'removeFilesAfter': {
+      'input': 'checkbox',
+      'info': 'True if ziped files have to be remove after, false otherwise.',
+      'beautifulName': 'Remove files after zip?'
     }
    },
   'readme': 'This component allow you to compress files into a single zip file.',

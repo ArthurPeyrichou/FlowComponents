@@ -6,17 +6,13 @@ def onData(instance, args):
     payload = args[0]
     df = payload.data
 
-    # dropping duplicate values 
-    df.drop_duplicates(keep=False,inplace=True) 
-
     if 'columns' in instance.options and instance.options['columns'] != '':
       if ';' in instance.options['columns']:
-        for val in instance.options['columns'].split(';'):
-          df.drop_duplicates(subset=val, keep=False, inplace=True) 
+        df = df.drop_duplicates(subset=instance.options['columns'].split(';'), keep='last') 
       else:
-        df.drop_duplicates(subset=instance.options['columns'], keep=False, inplace=True) 
+        df = df.drop_duplicates(subset=[instance.options['columns']], keep='last') 
     else:
-      df.drop_duplicates(keep=False,inplace=True) 
+      df = df.drop_duplicates(keep='last') 
 
     instance.send(df)
   except Exception as e:
